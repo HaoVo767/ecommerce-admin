@@ -7,7 +7,11 @@ interface IParams {
   }
 }
 
-const BillboardPage: React.FC<IParams> = async ({ params }) => {
+const BillboardPage = async ({
+  params,
+}: {
+  params: Promise<{ billboardId: string }>
+}) => {
   const { billboardId } = await params
 
   const fetchBillboard = async (): Promise<IBillboard | null> => {
