@@ -4,12 +4,11 @@ import BillboardForm from "./components/billboard-form"
 interface IParams {
   params: {
     billboardId: string
-    storeId: string
   }
 }
 
 const BillboardPage: React.FC<IParams> = async ({ params }) => {
-  const { billboardId, storeId } = await params
+  const { billboardId } = await params
 
   const fetchBillboard = async (): Promise<IBillboard | null> => {
     try {
