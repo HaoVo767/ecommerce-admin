@@ -3,8 +3,8 @@ import BillboardForm from "./components/billboard-form"
 
 interface IParams {
   params: {
-    billboardId: string | null
-    storeId: string | null
+    billboardId: string
+    storeId: string
   }
 }
 
