@@ -7,7 +7,7 @@ interface IBillboardProps {
     storeId: string
   }
 }
-const Billboard: React.FC<IBillboardProps> = async ({ params }) => {
+async function Billboard({ params }: { params: Promise<{ storeId: string }> }) {
   const { storeId } = await params
   const getBillboardData = async () => {
     try {
