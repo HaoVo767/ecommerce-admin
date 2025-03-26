@@ -2,11 +2,11 @@ import { IBillboard } from "@/interface/store"
 import BillboardClient from "./components/client"
 import { format } from "date-fns"
 import { BillboardColumn } from "../billboard/[billboardId]/components/column"
-interface IBillboardProps {
-  params: {
-    storeId: string
-  }
-}
+// interface IBillboardProps {
+//   params: {
+//     storeId: string
+//   }
+// }
 async function Billboard({ params }: { params: Promise<{ storeId: string }> }) {
   const { storeId } = await params
   const getBillboardData = async () => {

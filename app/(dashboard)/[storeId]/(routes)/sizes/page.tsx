@@ -2,12 +2,12 @@ import { ISize } from "@/interface/store"
 import SizeForm from "./components/client"
 import { format } from "date-fns"
 import { SizeColumn } from "./[sizeId]/components/column"
-interface ISizeProps {
-  params: {
-    storeId: string
-  }
-}
-const Size: React.FC<ISizeProps> = async ({ params }) => {
+// interface ISizeProps {
+//   params: {
+//     storeId: string
+//   }
+// }
+async function Size({ params }: { params: Promise<{ storeId: string }> }) {
   const { storeId } = await params
   const getSizeData = async () => {
     try {

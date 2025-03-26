@@ -1,14 +1,18 @@
 import { ICategories, IBillboard } from "@/interface/store"
 import CategoryForm from "./components/category-form"
 
-interface IParams {
-  params: {
-    categoryId: string | null
-    storeId: string | null
-  }
-}
+// interface IParams {
+//   params: {
+//     categoryId: string | null
+//     storeId: string | null
+//   }
+// }
 
-const CategoryPage: React.FC<IParams> = async ({ params }) => {
+const CategoryPage = async ({
+  params,
+}: {
+  params: Promise<{ categoryId: string; storeId: string }>
+}) => {
   const { categoryId, storeId } = await params
 
   const fetchCategory = async (): Promise<ICategories | null> => {

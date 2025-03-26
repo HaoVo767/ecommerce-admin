@@ -1,12 +1,6 @@
 import { IBillboard } from "@/interface/store"
 import BillboardForm from "./components/billboard-form"
 
-interface IParams {
-  params: {
-    billboardId: string
-  }
-}
-
 const BillboardPage = async ({
   params,
 }: {

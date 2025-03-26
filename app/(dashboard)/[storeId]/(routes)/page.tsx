@@ -16,7 +16,11 @@ interface IDashboardPageProps {
   params: { storeId: string }
 }
 
-const DashboardPage: React.FC<IDashboardPageProps> = async ({ params }) => {
+async function DashboardPage({
+  params,
+}: {
+  params: Promise<{ storeId: string }>
+}) {
   const { storeId } = await params
   // const store = await axios.get(`/store/${storeId}`)
   redirect(`/${storeId}/orders`)

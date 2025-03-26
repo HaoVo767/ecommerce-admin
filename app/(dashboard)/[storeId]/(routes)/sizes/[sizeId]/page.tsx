@@ -1,14 +1,18 @@
 import { ISize } from "@/interface/store"
 import SizeForm from "./components/size-form"
 
-interface IParams {
-  params: {
-    sizeId: string | null
-    storeId: string | null
-  }
-}
+// interface IParams {
+//   params: {
+//     sizeId: string | null
+//     storeId: string | null
+//   }
+// }
 
-const SizePage: React.FC<IParams> = async ({ params }) => {
+async function SizePage({
+  params,
+}: {
+  params: Promise<{ sizeId: string; storeId: string }>
+}) {
   const { sizeId } = await params
 
   const fetchSize = async (): Promise<ISize | null> => {

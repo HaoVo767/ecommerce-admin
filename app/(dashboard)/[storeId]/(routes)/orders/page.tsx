@@ -3,12 +3,12 @@ import OrderClient from "./components/client"
 import { format } from "date-fns"
 import { OrderColumn } from "./components/column"
 import { formattedCurrency } from "@/lib/utils"
-interface IOrderProps {
-  params: {
-    storeId: string
-  }
-}
-const OrderPage: React.FC<IOrderProps> = async ({ params }) => {
+// interface IOrderProps {
+//   params: {
+//     storeId: string
+//   }
+// }
+async function OrderPage({ params }: { params: Promise<{ storeId: string }> }) {
   const { storeId } = await params
   const getOrderData = async () => {
     try {

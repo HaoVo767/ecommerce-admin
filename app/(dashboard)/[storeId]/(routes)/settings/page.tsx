@@ -4,13 +4,17 @@ import { redirect } from "next/navigation"
 import React from "react"
 import SettingsForm from "./components/settings-form"
 import { IStore } from "@/interface/store"
-interface ISettingsPageProps {
-  params: {
-    storeId: string
-  }
-}
+// interface ISettingsPageProps {
+//   params: {
+//     storeId: string
+//   }
+// }
 
-const SettingsPage: React.FC<ISettingsPageProps> = async ({ params }) => {
+async function SettingsPage({
+  params,
+}: {
+  params: Promise<{ storeId: string }>
+}) {
   const { userId } = await auth()
   const { storeId } = await params
   if (!userId) {

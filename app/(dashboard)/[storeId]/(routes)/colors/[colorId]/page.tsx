@@ -1,14 +1,18 @@
 import { IColor } from "@/interface/store"
 import ColorForm from "./components/color-form"
 
-interface IParams {
-  params: {
-    colorId: string | null
-    storeId: string | null
-  }
-}
+// interface IParams {
+//   params: {
+//     colorId: string | null
+//     storeId: string | null
+//   }
+// }
 
-const ColorPage: React.FC<IParams> = async ({ params }) => {
+async function ColorPage({
+  params,
+}: {
+  params: Promise<{ colorId: string; storeId: string }>
+}) {
   const { colorId } = await params
 
   const fetchColor = async (): Promise<IColor | null> => {

@@ -2,12 +2,16 @@ import { ICategories } from "@/interface/store"
 import CategoriesClient from "./components/client"
 import { format } from "date-fns"
 import { CategoriesColumn } from "./[categoryId]/components/column"
-interface ICategoriesProps {
-  params: {
-    storeId: string
-  }
-}
-const Categories: React.FC<ICategoriesProps> = async ({ params }) => {
+// interface ICategoriesProps {
+//   params: {
+//     storeId: string
+//   }
+// }
+async function Categories({
+  params,
+}: {
+  params: Promise<{ storeId: string }>
+}) {
   const { storeId } = await params
   const getCategoriesData = async () => {
     try {

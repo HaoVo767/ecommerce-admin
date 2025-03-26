@@ -1,14 +1,18 @@
 import { IProduct } from "@/interface/store"
 import ProductForm from "./components/product-form"
 
-interface IParams {
-  params: {
-    productId: string | null
-    storeId: string | null
-  }
-}
+// interface IParams {
+//   params: {
+//     productId: string | null
+//     storeId: string | null
+//   }
+// }
 
-const ProductPage: React.FC<IParams> = async ({ params }) => {
+async function ProductPage({
+  params,
+}: {
+  params: Promise<{ productId: string; storeId: string }>
+}) {
   const { productId, storeId } = await params
 
   const fetchProduct = async (): Promise<IProduct | null> => {

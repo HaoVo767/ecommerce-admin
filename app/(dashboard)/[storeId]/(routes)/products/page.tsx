@@ -3,12 +3,12 @@ import ProductClient from "./components/client"
 import { format } from "date-fns"
 import { ProductColumn } from "../products/[productId]/components/column"
 import { formattedCurrency } from "@/lib/utils"
-interface IProductProps {
-  params: {
-    storeId: string
-  }
-}
-const Product: React.FC<IProductProps> = async ({ params }) => {
+// interface IProductProps {
+//   params: {
+//     storeId: string
+//   }
+// }
+async function Product({ params }: { params: Promise<{ storeId: string }> }) {
   const { storeId } = await params
   const getProductData = async () => {
     try {

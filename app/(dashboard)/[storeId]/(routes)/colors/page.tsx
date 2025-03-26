@@ -2,12 +2,12 @@ import { IColor } from "@/interface/store"
 import ColorForm from "./components/client"
 import { format } from "date-fns"
 import { ColorColumn } from "./[colorId]/components/column"
-interface IColorProps {
-  params: {
-    storeId: string
-  }
-}
-const Color: React.FC<IColorProps> = async ({ params }) => {
+// interface IColorProps {
+//   params: {
+//     storeId: string
+//   }
+// }
+async function Color({ params }: { params: Promise<{ storeId: string }> }) {
   const { storeId } = await params
   const getColorData = async () => {
     try {
