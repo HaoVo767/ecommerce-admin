@@ -19,7 +19,7 @@ import {
   SelectGroup,
   SelectItem,
   SelectTrigger,
-  SelectValue,
+  SelectValue
 } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 interface IProductFormProps {
@@ -35,12 +35,12 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
   const [allSize, setAllSize] = useState<ISize[]>([])
   const [allColor, setAllColor] = useState<IColor[]>([])
   const [imageUrl, setImageUrl] = useState<Partial<IImage>[]>(
-    initialData ? initialData?.image : [],
+    initialData ? initialData?.image : []
   )
   const [formData, setFormData] = useState<Partial<IProduct>>(
     initialData
       ? { ...initialData, price: +initialData.price }
-      : { isFeatured: false, isArchived: false },
+      : { isFeatured: false, isArchived: false }
   )
   const [errorMessage, setErrorMessage] = useState<string[]>()
   console.log("initialData", initialData)
@@ -66,8 +66,8 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
       `${process.env.NEXT_PUBLIC_BASE_URL}/category/findAllCategory/${storeId}`,
       {
         method: "GET",
-        headers: { "Content-Type": "application/json" },
-      },
+        headers: { "Content-Type": "application/json" }
+      }
     )
       .then((response) => response.json())
       .then((data) => setAllCategory(data))
@@ -75,7 +75,7 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
 
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/size/findAllSize/${storeId}`, {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     })
       .then((response) => response.json())
       .then((data) => setAllSize(data))
@@ -83,7 +83,7 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
 
     fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/color/findAllColor/${storeId}`, {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     })
       .then((response) => response.json())
       .then((data) => setAllColor(data))
@@ -94,7 +94,7 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
     const formSubmit = {
       ...formData,
       images: imageUrl,
-      price: +(formData.price || 0),
+      price: +(formData.price || 0)
     }
     // console.log("formSubmit", formSubmit)
 
@@ -105,9 +105,9 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            ...formSubmit,
-          }),
-        },
+            ...formSubmit
+          })
+        }
       )
         .then((response) => response.json())
         .then((data) => {
@@ -119,13 +119,13 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
           router.refresh()
           router.push(`/${storeId}/products`)
           toast.success(`${toastMessage}`, {
-            position: "top-center",
+            position: "top-center"
           })
         })
         .catch((err) => {
           console.log(err)
           toast.error("Somthing went wrong", {
-            position: "top-center",
+            position: "top-center"
           })
         })
         .finally(() => {
@@ -136,8 +136,8 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...formSubmit,
-        }),
+          ...formSubmit
+        })
       })
         .then((response) => response.json())
         .then((data) => {
@@ -148,13 +148,13 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
           router.refresh()
           router.push(`/${storeId}/products`)
           toast.success(`${toastMessage}`, {
-            position: "top-center",
+            position: "top-center"
           })
         })
         .catch((err) => {
           console.log(err)
           toast.error("Something went wrong", {
-            position: "top-center",
+            position: "top-center"
           })
         })
         .finally(() => {
@@ -170,8 +170,8 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
         `${process.env.NEXT_PUBLIC_BASE_URL}/product/${initialData?.id}`,
         {
           method: "DELETE",
-          headers: { "Content-Type": "application/json" },
-        },
+          headers: { "Content-Type": "application/json" }
+        }
       )
       setIsOpen(false)
       router.refresh()
@@ -179,7 +179,7 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
       toast.success("Product deleted", { position: "top-center" })
     } catch (err) {
       toast.error("Something went wrong", {
-        position: "top-center",
+        position: "top-center"
       })
     } finally {
       setIsLoading(false)
@@ -356,7 +356,7 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
                         <div
                           className="w-6 h-6 rounded-full"
                           style={{
-                            backgroundColor: color?.value,
+                            backgroundColor: color?.value
                           }}
                         ></div>
                         <div className="text-gray-800 ml-4">{color?.name}</div>
