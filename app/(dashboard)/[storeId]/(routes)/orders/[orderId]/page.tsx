@@ -20,12 +20,11 @@ const OrderId = () => {
       try {
         setIsLoading(true)
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/order/${params.orderId}`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/order/${params.orderId}`
         )
         const data = await response.json()
         setOrder(data)
         setIsLoading(false)
-        console.log("data order", data)
       } catch (err) {
         setIsLoading(false)
         console.log(err)

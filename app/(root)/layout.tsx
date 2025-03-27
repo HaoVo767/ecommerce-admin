@@ -4,7 +4,7 @@ import { error } from "console"
 import { redirect } from "next/navigation"
 
 export default async function SetupLayout({
-  children,
+  children
 }: {
   children: React.ReactNode
 }) {
@@ -18,11 +18,10 @@ export default async function SetupLayout({
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId }),
-    },
+      body: JSON.stringify({ userId })
+    }
   )
   const stores = await response.json()
-  console.log("stores ", stores)
   if (stores) {
     redirect(`/${stores?.id}/orders`)
   }

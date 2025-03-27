@@ -43,7 +43,6 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
       : { isFeatured: false, isArchived: false }
   )
   const [errorMessage, setErrorMessage] = useState<string[]>()
-  console.log("initialData", initialData)
 
   const onChangeFormData = (item: any) => {
     setFormData((prev) => ({ ...prev, ...item }))
@@ -60,7 +59,6 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
     return setImageUrl(removeImage)
   }
 
-  console.log("imageUrl ", imageUrl)
   useEffect(() => {
     fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/category/findAllCategory/${storeId}`,
@@ -115,7 +113,6 @@ const ProductForm: React.FC<IProductFormProps> = ({ initialData }) => {
             setErrorMessage(data.message)
             return
           }
-          // console.log("data update ", data)
           router.refresh()
           router.push(`/${storeId}/products`)
           toast.success(`${toastMessage}`, {

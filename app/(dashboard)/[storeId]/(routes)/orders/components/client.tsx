@@ -11,9 +11,6 @@ interface IOrderClientProps {
   data: OrderColumn[]
 }
 const OrderClient: React.FC<IOrderClientProps> = ({ data }) => {
-  console.log("order data ", data)
-  // const router = useRouter()
-  // const params = useParams()
   return (
     <>
       <div className="flex items-center justify-between">

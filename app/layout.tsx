@@ -10,21 +10,21 @@ import { ThemeProvider } from "@/provider/theme-provider"
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
-  weight: "100 900",
+  weight: "100 900"
 })
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
-  weight: "100 900",
+  weight: "100 900"
 })
 
 export const metadata: Metadata = {
   title: "Admin dashboard",
-  description: "Admin dashboard",
+  description: "Admin dashboard"
 }
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode
 }>) {
@@ -36,7 +36,7 @@ export default function RootLayout({
         >
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="Light"
             enableSystem
             disableTransitionOnChange
           >

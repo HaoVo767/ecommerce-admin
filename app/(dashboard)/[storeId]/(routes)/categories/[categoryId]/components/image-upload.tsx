@@ -26,11 +26,11 @@ interface IImageUploadProps2 {
 const ImageUpload: React.FC<IImageUploadProps2> = ({
   initialData,
   categoryName,
-  storeId,
+  storeId
 }) => {
   const [isMounted, setIsMounted] = useState(false)
   const [imageUrl, setImageUrl] = useState<string>(
-    () => initialData?.imageUrl || "",
+    () => initialData?.imageUrl || ""
   )
   const { isSubmit, onAfterSubmit } = useHandleSubmit()
   const router = useRouter()
@@ -38,11 +38,10 @@ const ImageUpload: React.FC<IImageUploadProps2> = ({
   const toastMessage = initialData ? "Billboard updated" : "Billboard created"
   useEffect(() => {
     if (isSubmit) {
-      console.log("isSubmit")
       onFetch()
       const handleSubmit = async () => {
         const headers = {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         }
         if (initialData) {
           await fetch(
@@ -52,16 +51,16 @@ const ImageUpload: React.FC<IImageUploadProps2> = ({
               headers,
               body: JSON.stringify({
                 imageUrl,
-                name: categoryName,
-              }),
-            },
+                name: categoryName
+              })
+            }
           )
             .then((response) => response.json())
             .then(() => onFetch())
             .catch((err) => {
               console.log(err), onFetch()
               toast.error("Somthing went wrong", {
-                position: "top-center",
+                position: "top-center"
               })
             })
         } else {
@@ -72,9 +71,9 @@ const ImageUpload: React.FC<IImageUploadProps2> = ({
               headers,
               body: JSON.stringify({
                 imageUrl,
-                label: categoryName,
-              }),
-            },
+                label: categoryName
+              })
+            }
           )
             .then((response) => response.json())
             .then((data) => {
@@ -84,14 +83,14 @@ const ImageUpload: React.FC<IImageUploadProps2> = ({
             .catch((err) => {
               console.log(err), onFetch()
               toast.error("Something went wrong", {
-                position: "top-center",
+                position: "top-center"
               })
             })
         }
         router.refresh()
         router.push(`/${storeId}/billboard`)
         toast.success(`${toastMessage}`, {
-          position: "top-center",
+          position: "top-center"
         })
       }
       handleSubmit()
@@ -151,7 +150,7 @@ const ImageUpload: React.FC<IImageUploadProps2> = ({
           setImageUrl(
             typeof result.info !== "string" && result.info?.url
               ? result.info?.url
-              : "",
+              : ""
           )
         }}
       >

@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar"
 
 export default async function DashboardLayout({
   children,
-  params,
+  params
 }: {
   children: React.ReactNode
   params: Promise<{ storeId: string }>
@@ -19,11 +19,10 @@ export default async function DashboardLayout({
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/store/${storeId}`,
       {
-        method: "GET",
-      },
+        method: "GET"
+      }
     )
     const store = await response.json()
-    console.log("storeeeeee ", store)
     if (!store) {
       redirect("/")
     }

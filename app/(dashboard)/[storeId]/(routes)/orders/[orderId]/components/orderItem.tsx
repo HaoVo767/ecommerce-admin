@@ -9,7 +9,6 @@ interface OrderItemProp {
 }
 const OrderItem: React.FC<OrderItemProp> = ({ ...props }) => {
   const { data } = props
-  console.log("data ", data)
   const [isMounted, setIsMounted] = useState<boolean>(false)
   useEffect(() => {
     setIsMounted(true)
